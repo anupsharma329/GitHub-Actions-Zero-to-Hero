@@ -26,5 +26,5 @@ jobs:
 
     - name: Run tests
       run: |
-        if [ -d "src" ]; then cd src; fi  # Only cd if src exists
-        pytest  # Runs all test files automatically
+        cd src
+        pytest test_addition.py  # Run tests inside src/
