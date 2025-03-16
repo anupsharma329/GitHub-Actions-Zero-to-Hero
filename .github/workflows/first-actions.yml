@@ -1,6 +1,6 @@
-name: My GitHub Actions
+name: Python Tests
 
-on: [push]
+on: [push]  # Runs on every push
 
 jobs:
   build:
@@ -11,9 +11,11 @@ jobs:
         python-version: [3.8, 3.9]
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout Code
+      uses: actions/checkout@v4  # Pulls latest code
+
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -25,4 +27,4 @@ jobs:
     - name: Run tests
       run: |
         cd src
-        python -m pytest addition.py
+        pytest  # Runs all tests in test_app.py
