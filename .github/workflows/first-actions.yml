@@ -26,5 +26,5 @@ jobs:
 
     - name: Run tests
       run: |
-        cd src
-        pytest  # Runs all tests in test_app.py
+        if [ -d "src" ]; then cd src; fi  # Only cd if src exists
+        pytest  # Runs all test files automatically
